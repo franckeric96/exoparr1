@@ -16,7 +16,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.nom
     
-    
+     
 class Newletter(models.Model):
     email = models.EmailField()
     date_add = models.DateTimeField(auto_now_add=True)
