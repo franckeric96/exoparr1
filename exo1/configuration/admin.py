@@ -4,10 +4,10 @@ from . import models
 
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions
 
 # Register your models here.
-class SocialAccountAdmin(admin.ModelAdmin):
+class SocialAccountAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom']}),
         ('reseaux', {'fields': ['icon','lien','status']})
@@ -24,7 +24,7 @@ class SocialAccountAdmin(admin.ModelAdmin):
     list_per_page = 10
     
     
-class InfoSiteAdmin(admin.ModelAdmin):
+class InfoSiteAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['image','nom']}),
@@ -43,7 +43,7 @@ class InfoSiteAdmin(admin.ModelAdmin):
     def image_views(self,obj):
         return mark_safe("<img src='{url}' width= 100px height=50px >".format(url=obj.image.url))
 
-class TemoignageAdmin(admin.ModelAdmin):
+class TemoignageAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['image','nom','prenom']}),
